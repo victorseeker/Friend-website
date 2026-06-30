@@ -1,21 +1,17 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;overflow:hidden}
-body{font-family:Fredoka,sans-serif;background:linear-gradient(135deg,#ffd8ea,#fff5fb,#fff);display:flex;justify-content:center;align-items:center;position:relative}
-.bg{position:absolute;border-radius:50%;filter:blur(90px);opacity:.35}
-.b1{width:250px;height:250px;background:#ff8fc1;left:-80px;top:-80px}
-.b2{width:220px;height:220px;background:#ffd5ea;right:-60px;bottom:-60px}
-.hero{width:100%;display:flex;justify-content:center;padding:20px}
-.card{width:min(92vw,420px);background:rgba(255,255,255,.75);backdrop-filter:blur(18px);border-radius:28px;padding:28px;text-align:center;box-shadow:0 18px 50px rgba(255,105,180,.2)}
-.avatar{width:90px;height:90px;margin:auto;border-radius:50%;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg,#ff8dc3,#ffc8df);font-size:48px;animation:f 3s infinite}
-@keyframes f{50%{transform:translateY(-8px)}}
-h1{margin:18px 0 8px;color:#ff4d94}h2{color:#7a5bff;font-size:18px}
-#typing{margin:18px 0;min-height:100px;line-height:1.7}
-button{width:100%;padding:14px;border:none;border-radius:999px;background:#ff77b4;color:#fff;font-size:16px;cursor:pointer}
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;justify-content:center;align-items:center;padding:20px}
-.overlay.show{display:flex}
-.letter{background:#fff;width:min(92vw,420px);max-height:80vh;overflow-y:auto;border-radius:24px;padding:26px;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.2)}
-.close{position:sticky;top:0;float:right;width:38px;height:38px;border-radius:50%;background:#ff77b4}
-.letter h2{clear:both;color:#ff4d94;margin-bottom:16px}
-.letter p{line-height:1.9;font-size:16px}
+body{font-family:Fredoka,sans-serif;background:linear-gradient(135deg,#ffd9ea,#fff5fb,#fff);display:flex;justify-content:center;align-items:center;position:relative}
+.card{width:min(92vw,420px);background:rgba(255,255,255,.78);backdrop-filter:blur(16px);padding:28px;border-radius:28px;text-align:center;box-shadow:0 20px 50px rgba(255,105,180,.18);z-index:2}
+.avatar{width:90px;height:90px;margin:auto;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#ff8cc2,#ffc8df);font-size:48px;animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px)}}
+h1{margin:18px 0 8px;color:#ff4d94}h3{color:#7a5bff;font-weight:500}
+#typing{min-height:90px;margin:20px 0;line-height:1.7}
+button{width:100%;padding:14px;border:none;border-radius:999px;background:linear-gradient(90deg,#ff78b4,#ffb7d9);color:#fff;font-size:16px;cursor:pointer}
+#overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;justify-content:center;align-items:center;padding:20px}
+#overlay.show{display:flex}
+.letter{background:#fff;width:min(92vw,420px);max-height:80vh;overflow:auto;padding:26px;border-radius:24px;position:relative}
+#closeBtn{position:sticky;top:0;float:right;width:38px;height:38px;background:#ff78b4}
+.letter h2{clear:both;margin-bottom:18px;color:#ff4d94}
+.letter p{line-height:1.9}
 .petal{position:fixed;top:-20px;pointer-events:none;animation:fall linear forwards}
 @keyframes fall{to{transform:translateY(110vh) translateX(60px) rotate(360deg)}}
