@@ -1,108 +1,159 @@
-const text = `Hello Afnan! 👋
+const message = `Hello Afnan! 👋
 
 I'm Victor.
 
-I made this little website just for you.
+I made this little website just to say...
 
-It's a small surprise to say...
+Nice to meet you. 💖
 
-Nice to meet you! 💖
-
-I hope this page makes you smile and brightens your day.
-
-Wishing you happiness, laughter, good health, and lots of wonderful adventures. 🌸✨`;
+I hope today brings you lots of happiness,
+beautiful moments,
+and many reasons to smile. 🌸`;
 
 const typing = document.getElementById("typing");
-let index = 0;
 
-function typeWriter() {
-    if (index < text.length) {
-        typing.innerHTML += text.charAt(index) === "\n" ? "<br>" : text.charAt(index);
-        index++;
-        setTimeout(typeWriter, 35);
+let i = 0;
+
+function type() {
+
+    if (i < message.length) {
+
+        if (message[i] === "\n") {
+
+            typing.innerHTML += "<br>";
+
+        } else {
+
+            typing.innerHTML += message[i];
+
+        }
+
+        i++;
+
+        setTimeout(type, 35);
+
     }
+
 }
 
-typeWriter();
+type();
 
-// Open Letter
-document.getElementById("openBtn").addEventListener("click", () => {
-    const letter = document.getElementById("letter");
+const overlay = document.getElementById("overlay");
 
-    if (letter.style.display === "block") {
-        letter.style.display = "none";
-        document.getElementById("openBtn").innerHTML = "💌 Open My Letter";
-    } else {
-        letter.style.display = "block";
-        document.getElementById("openBtn").innerHTML = "💕 Close Letter";
+document.getElementById("letterBtn").onclick = () => {
+
+    overlay.classList.add("show");
+
+};
+
+document.getElementById("closeBtn").onclick = () => {
+
+    overlay.classList.remove("show");
+
+};
+
+overlay.onclick = (e) => {
+
+    if (e.target === overlay) {
+
+        overlay.classList.remove("show");
+
     }
-});
 
-// Sakura
+};
+
+// 🌸 Sakura
 function createPetal() {
 
     const petal = document.createElement("div");
 
     petal.className = "petal";
 
-    petal.innerHTML = ["🌸","🌺","💮"][Math.floor(Math.random()*3)];
+    const flowers = ["🌸","🌸","🌸","🌺","💮"];
 
-    petal.style.left = Math.random()*100 + "vw";
+    petal.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
 
-    petal.style.animationDuration = (6 + Math.random()*6) + "s";
+    petal.style.left = Math.random() * 100 + "vw";
 
-    petal.style.fontSize = (18 + Math.random()*16) + "px";
+    petal.style.fontSize = (14 + Math.random() * 12) + "px";
+
+    petal.style.animationDuration = (6 + Math.random() * 6) + "s";
+
+    petal.style.opacity = 0.5 + Math.random() * 0.5;
 
     document.body.appendChild(petal);
 
-    setTimeout(()=>{
+    setTimeout(() => {
+
         petal.remove();
+
     },12000);
 
 }
 
 setInterval(createPetal,300);
 
-// Hearts
+// 💖 Hearts
 document.addEventListener("click",(e)=>{
 
     const heart=document.createElement("div");
 
-    heart.className="heart";
+    heart.innerHTML=["💖","💕","💗","❤️"][Math.floor(Math.random()*4)];
 
-    heart.innerHTML=["💖","💕","❤️","💗"][Math.floor(Math.random()*4)];
+    heart.style.position="fixed";
 
     heart.style.left=e.clientX+"px";
 
     heart.style.top=e.clientY+"px";
 
+    heart.style.fontSize="22px";
+
+    heart.style.pointerEvents="none";
+
+    heart.style.transition="all 1s ease";
+
+    heart.style.zIndex="999";
+
     document.body.appendChild(heart);
 
+    requestAnimationFrame(()=>{
+
+        heart.style.transform="translateY(-100px) scale(1.4)";
+
+        heart.style.opacity="0";
+
+    });
+
     setTimeout(()=>{
+
         heart.remove();
+
     },1000);
 
 });
 
-// Floating animation
+// 🧸 Avatar animation
+const avatar = document.querySelector(".avatar");
+
 setInterval(()=>{
 
-    const avatar=document.querySelector(".avatar");
-
     avatar.animate([
+
         {transform:"translateY(0px)"},
+
         {transform:"translateY(-8px)"},
+
         {transform:"translateY(0px)"}
+
     ],{
 
-        duration:2500,
+        duration:2800,
 
         easing:"ease-in-out"
 
     });
 
-},2500);
+},2800);
 
-// Greeting in console 😄
-console.log("%cHi Afnan! 💖","font-size:24px;color:#ff4d94;font-weight:bold;");
-console.log("%cMade with ❤️ by Victor","font-size:16px;color:#666;");
+console.log("🌸 Hi Afnan!");
+console.log("Made with ❤️ by Victor");
